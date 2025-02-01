@@ -1,35 +1,34 @@
 package org.example;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
-
-
    @FXML
    Button dashboardButton;
    @FXML
-   Button availableRoomsButton;
+   Button roomsButton;
    @FXML
    Button customersButton;
 
 
    @FXML
    AnchorPane rightPane; //parent pane on the right side
-   AnchorPane availableRoomsPane;
-   AnchorPane customersPane;
-   AnchorPane dashboardPane;
+   Pane roomsPane;
+   Pane customersPane;
+   Pane dashboardPane;
+   Pane employeesPane;
+   ArrayList<Pane> dynamicPanes = new ArrayList<>();
 
 
 
@@ -37,11 +36,15 @@ public class MainPageController implements Initializable {
    public void initialize(URL url, ResourceBundle resourceBundle) {
       try {
          FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/fxmlFolder/AvailableRoomsPane.fxml"));
-         availableRoomsPane=fxmlLoader1.load();
+         roomsPane=fxmlLoader1.load();
          FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/fxmlFolder/CustomersPane.fxml"));
          customersPane=fxmlLoader2.load();
          FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/fxmlFolder/DashboardPane.fxml"));
          dashboardPane=fxmlLoader3.load();
+         dynamicPanes.add(roomsPane);
+         dynamicPanes.add(customersPane);
+         dynamicPanes.add(dashboardPane);
+
 
       }
       catch (IOException e) {
@@ -60,26 +63,27 @@ public class MainPageController implements Initializable {
    }
 
    public void showDashboard(){
-      rightPane.getChildren().clear();
-
+      rightPane.getChildren().removeAll(dynamicPanes);
+      AnchorPane.setTopAnchor(customersPane, 0.0);
+      AnchorPane.setLeftAnchor(customersPane, 0.0);
       rightPane.getChildren().add(dashboardPane);
    }
 
 
 
    public void showAvailableRooms()  {
-      System.out.println("method is called. Available Rooms: "+availableRoomsButton.getText());
+//      System.out.println("method is called. Available Rooms: "+roomsButton.getText());
       //should retrieve rooms data from db and then load
 
-      rightPane.getChildren().clear();
-      AnchorPane.setTopAnchor(availableRoomsPane, 0.0);
-      AnchorPane.setLeftAnchor(availableRoomsPane, 0.0);
-      rightPane.getChildren().add(availableRoomsPane);
+      rightPane.getChildren().removeAll(dynamicPanes);
+      AnchorPane.setTopAnchor(roomsPane, 0.0);
+      AnchorPane.setLeftAnchor(roomsPane, 0.0);
+      rightPane.getChildren().add(roomsPane);
    }
    public void showCustomers() {
-      rightPane.getChildren().clear();
-//      AnchorPane.setTopAnchor(customersPane, 0.0);
-//      AnchorPane.setLeftAnchor(customersPane, 0.0);
+      rightPane.getChildren().removeAll(dynamicPanes);
+      AnchorPane.setTopAnchor(customersPane, 0.0);
+      AnchorPane.setLeftAnchor(customersPane, 0.0);
       rightPane.getChildren().add(customersPane);
    }
 

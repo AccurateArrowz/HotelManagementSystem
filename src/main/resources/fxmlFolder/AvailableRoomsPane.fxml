@@ -1,16 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--<?import com.gluonhq.charm.glisten.control.Icon?>-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <!--        fx:controller="org.example.MainPageController"-->
-<AnchorPane  prefHeight="800.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+
+<HBox prefHeight="761.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.RoomsPaneController">
    <children>
-      <Label layoutX="244.0" layoutY="62.0" text="Avaiable Rooms Pane">
-         <font>
-            <Font size="49.0" />
-         </font>
-      </Label>
+      <VBox alignment="CENTER" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="836.0" prefWidth="244.0">
+         <children>
+            <GridPane maxWidth="-Infinity" prefHeight="183.0" prefWidth="226.0" vgap="20.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="112.60683059692383" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="582.4621887207031" minWidth="10.0" prefWidth="131.39316940307617" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.11077880859375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="28.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" text="Room No." GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="Type" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label text="Availability" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <TextField fx:id="roomNoField" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="roomType" prefHeight="26.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ChoiceBox fx:id="roomAvailability" prefHeight="26.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="roomPriceField" prefHeight="26.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="88.0" text="Cleaning Status" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                  <Label text="Price" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <VBox maxHeight="38.0" prefHeight="38.0" spacing="6.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <RadioButton fx:id="cleanedRadioButton" mnemonicParsing="false" text="cleaned">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="cleaningStatus" />
+                           </toggleGroup>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="uncleanedRadioButton" mnemonicParsing="false" text="not cleaned" toggleGroup="$cleaningStatus">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets right="15.0" />
+               </VBox.margin>
+            </GridPane>
+            <Label fx:id="errorLabel" alignment="CENTER" textAlignment="CENTER" textFill="#c31515">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Label>
+            <VBox alignment="CENTER">
+               <children>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addNewRoom" prefHeight="40.0" prefWidth="120.0" text="Add">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="updateButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Update">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" text="Delete">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin></Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox>
+               <children>
+                  <Button fx:id="checkInButton" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="245.0" text="Check In">
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
+            <Line endX="472.04510498046875" endY="-135.82186889648438" startX="239.02984619140625" startY="-111.78021240234375" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="244.0" text="Check Out" />
+         </children>
+      </VBox>
+      <VBox prefWidth="787.0">
+         <children>
+            <HBox>
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="334.0" promptText="Search by keywords" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="22.0" prefWidth="689.0">
+               <children>
+                  <Label text="Show Only: " />
+                  <CheckBox mnemonicParsing="false" text="Available" />
+               </children>
+            </HBox>
+            <TableView fx:id="roomsTable" prefHeight="201.0" prefWidth="689.0">
+              <columns>
+                <TableColumn prefWidth="138.0" text="Room No" />
+                <TableColumn prefWidth="138.0" text="Type" />
+                  <TableColumn prefWidth="138.0" text="Availability" />
+                  <TableColumn prefWidth="138.0" text="Price" />
+                  <TableColumn prefWidth="138.0" text="Cleaning Status" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
-</AnchorPane>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</HBox>
