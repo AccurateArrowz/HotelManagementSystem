@@ -3,55 +3,161 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MainPageController">
+<VBox maxHeight="832.0" maxWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.MainPageController">
    <children>
-      <VBox prefHeight="804.0" prefWidth="248.0" style="-fx-background-color: lightgreen;">
+      <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="1258.0" spacing="51.0">
          <children>
-            <VBox prefHeight="298.0" prefWidth="182.0" style="-fx-background-color: pink;" />
-            <Button fx:id="dashboardButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#showDashboard" prefHeight="62.0" prefWidth="306.0" text="Dashboard">
-               <VBox.margin>
-                  <Insets top="40.0" />
-               </VBox.margin>
+            <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="65.0">
+               <graphic>
+                  <ImageView fitHeight="61.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Downloads/project_images/icons8-contact-info-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="availableRoomsButton" mnemonicParsing="false" onAction="#showAvailableRooms" prefHeight="62.0" prefWidth="306.0" text="Available Rooms" />
-            <Button fx:id="customersButton" mnemonicParsing="false" onAction="#showCustomers" prefHeight="62.0" prefWidth="306.0" text="Customers" />
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="306.0" text="Employees" />
-            <HBox>
-               <VBox.margin>
-                  <Insets top="87.0" />
-               </VBox.margin>
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <VBox maxHeight="-Infinity" prefHeight="839.0" prefWidth="225.0" styleClass="sideBar" stylesheets="@../style.css">
                <children>
-                  <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="80.0" />
-                  <Label prefHeight="50.0" prefWidth="246.0" text="Log Out" textAlignment="CENTER">
+                  <VBox prefHeight="340.0" prefWidth="225.0">
+                     <children>
+                        <Label minHeight="-Infinity" styleClass="customFont" stylesheets="@../style.css" text="Welcome to the System" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="220.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/night_resort.jpg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <Button fx:id="dashboardButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDashboard" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Dashboard" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
-                  </Label>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8/icons8-dashboard-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="dashboardButton1" alignment="TOP_LEFT" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#showAvailableRooms" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Rooms" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8/icons8-bed-100%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="dashboardButton11" alignment="TOP_LEFT" layoutX="10.0" layoutY="722.0" mnemonicParsing="false" onAction="#showBookings" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Bookings" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8/icons8-booking-100%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <HBox>
+                     <VBox.margin>
+                        <Insets top="170.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="80.0">
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Downloads/project_images/icons8-logout-96.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="85.0" text="Log Out" textAlignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </VBox>
+            <HBox fx:id="rightPane" prefHeight="773.0" prefWidth="1033.0">
+               <children>
+                  <VBox prefHeight="766.0" prefWidth="456.0">
+                     <children>
+                        <Label prefHeight="103.0" prefWidth="424.0" text="Azure Haven" wrapText="true">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="68.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="30.0" prefHeight="85.0" prefWidth="424.0" text="Hotel" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="68.0" />
+                           </font>
+                        </Label>
+                        <Label graphicTextGap="6.0" prefHeight="194.0" prefWidth="424.0" text="A hotel where comfort meets personalized service—enjoy a stay that feels like home, with a touch of luxury." wrapText="true">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="596.0" fitWidth="605.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Hotel%20Booking-amico.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </HBox>
          </children>
-         <padding>
-            <Insets left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-      <VBox>
-         <children>
-            <AnchorPane prefHeight="45.0" prefWidth="849.0">
-               <children>
-                  <Button layoutX="864.0" layoutY="4.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="65.0" AnchorPane.rightAnchor="0.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="rightPane" prefHeight="761.0" prefWidth="1033.0" style="-fx-background-color: purple;">
-               <padding>
-                  <Insets right="30.0" />
-               </padding>
-            </AnchorPane>
-         </children>
-      </VBox>
+      </HBox>
    </children>
-</HBox>
+   <padding>
+      <Insets bottom="15.0" left="15.0" />
+   </padding>
+</VBox>

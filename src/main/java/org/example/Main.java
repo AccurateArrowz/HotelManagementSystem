@@ -1,5 +1,7 @@
 package org.example;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,16 +9,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.example.Controllers.MainPageController;
 
 public class Main extends Application{
     @FXML
     TextField usernameTextField;
+    @FXML
+    Button registerButton;
+
+    public static Connection getMyHikariConnection() throws SQLException {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/HotelManagementSystem");
+        config.setUsername("root");
+        config.setPassword("sujay10AWM");
+        config.setMaximumPoolSize(10); // Set max connections in the pool
+        HikariDataSource hikariDataSource = new HikariDataSource(config);
+        return hikariDataSource.getConnection();
+    }
 
     public static void main(String[] args) {
         launch(args);
@@ -32,7 +51,7 @@ public class Main extends Application{
         loginStage.show();
     }
 
-    public void authenticateLogin(ActionEvent event) throws IOException {
+    public void authenticateAccount(ActionEvent event) throws IOException {
         //rough- acess and username
         String username = usernameTextField.getText();
         //just load and display mainPageStage once authenticated
@@ -47,6 +66,15 @@ public class Main extends Application{
         MainPageController mainPageController = mainPageFxmlLoader.getController();
         usernameLabel.setText(username);
         usernameLabel.setFont(Font.font("Arial", 20));
-        mainPageController.addLabel(usernameLabel.getText());
+
+    }
+
+    public void registerAccount(ActionEvent event) throws IOException {
+        Stage registerStage = new Stage();
+        registerStage.setTitle("Register Account");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/RegisterPage.fxml"));
+        Scene scene= new Scene(fxmlLoader.load());
+        registerStage.setScene(scene);
+        registerStage.show();
     }
 }

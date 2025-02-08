@@ -1,0 +1,56 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+ /* -fx-effect: dropshadow(blurType, color, radius, spread, offsetX, offsetY) */
+ .myButton{
+     -fx-background-radius: 7px;
+ }
+ .myButton:hover{
+     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.15), 2.0, 0.0, 2.0, 5.0);
+ }
+ .signInButton{
+     -fx-background-color:  #0072BF;
+ }
+ .signInButton:hover{
+     -fx-background-color: #4b8bc3;
+     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.15), 2.0, 0.0, 2.0, 3.0);
+ }
+
+.blueGradient {
+    -fx-background-color: linear-gradient(to right, #0072ff, #00d4ff);
+    /*-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #D91F4E, #FF854d);*/
+}
+.sideBar{
+    -fx-background-color: #276977;
+}
+.lightBlueContainer{
+    -fx-background-color: rgba(0,136,255,0.14);
+    -fx-background-radius:10;
+}
+.dropshadow{
+     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
+}
+.field{
+    -fx-background-radius: 4px;
+
+}
+
+.customFont{
+    -fx-font-family: "Great Vibes", serif;
+  -fx-font-weight: 400;
+  -fx-font-style: normal;
+  -fx-font-size:37px;
+  /* font-style: normal; */
+}
+
+.sideBar_button{
+    -fx-background-color: #276977;
+}
+.sideBar_button:hover{
+    -fx-background-color:#5496A5;
+    -fx-border-color:#283678 ;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+

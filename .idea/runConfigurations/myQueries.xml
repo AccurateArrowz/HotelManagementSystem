@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="myQueries" type="DatabaseScript" editBeforeRun="true">
+    <script-file value="$PROJECT_DIR$/src/main/resources/hotelManagementSystem.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="c7122250-1db6-46ff-bba7-9da2ba3a4f38" namespace="schema/&quot;HotelManagementSystem&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

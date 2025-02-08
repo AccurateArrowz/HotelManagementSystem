@@ -3,11 +3,13 @@ package org.example.Model;
 import org.example.Controllers.RoomAvailabilityStatuses;
 
 public class Rooms {
+    //fields
     private Integer roomNo;
     private String roomType;
     private RoomAvailabilityStatuses roomAvailability;  // Using the RoomAvailabilityStatuses enum
     private Double roomPrice;
     private String cleaningStatus;
+
 
     // Constructor
     public Rooms(Integer roomNo, String roomType, RoomAvailabilityStatuses roomAvailability, Double roomPrice, String cleaningStatus) {
