@@ -23,7 +23,7 @@ import org.example.Controllers.MainPageController;
 
 public class Main extends Application{
     @FXML
-    TextField usernameTextField;
+    TextField login_emailTextField;
     @FXML
     Button registerButton;
 
@@ -32,7 +32,7 @@ public class Main extends Application{
         config.setJdbcUrl("jdbc:mysql://localhost:3306/HotelManagementSystem");
         config.setUsername("root");
         config.setPassword("sujay10AWM");
-        config.setMaximumPoolSize(10); // Set max connections in the pool
+        config.setMaximumPoolSize(5); // Set max connections in the pool
         HikariDataSource hikariDataSource = new HikariDataSource(config);
         return hikariDataSource.getConnection();
     }
@@ -52,8 +52,8 @@ public class Main extends Application{
     }
 
     public void authenticateAccount(ActionEvent event) throws IOException {
-        //rough- acess and username
-        String username = usernameTextField.getText();
+        //For login page
+        String enteredEmail = login_emailTextField.getText();
         //just load and display mainPageStage once authenticated
         FXMLLoader mainPageFxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/MainPage.fxml"));
         Stage mainPageStage = new Stage();
@@ -62,14 +62,9 @@ public class Main extends Application{
         Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         loginStage.close();
         mainPageStage.show();
-        Label usernameLabel = new Label("Username ");
-        MainPageController mainPageController = mainPageFxmlLoader.getController();
-        usernameLabel.setText(username);
-        usernameLabel.setFont(Font.font("Arial", 20));
-
     }
 
-    public void registerAccount(ActionEvent event) throws IOException {
+    public void openRegisterStage(ActionEvent event) throws IOException {
         Stage registerStage = new Stage();
         registerStage.setTitle("Register Account");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/RegisterPage.fxml"));

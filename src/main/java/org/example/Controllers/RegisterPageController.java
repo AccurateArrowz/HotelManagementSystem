@@ -11,8 +11,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
+
+import static org.example.Main.getMyHikariConnection;
 
 public class RegisterPageController implements Initializable {
 
@@ -44,7 +50,7 @@ public class RegisterPageController implements Initializable {
     }
 
 
-    public void validateRegistration() {
+    public void validateRegistration(ActionEvent event) {
         // Check if any field is empty
         if (firstNameField.getText().isEmpty() ||
                 lastNameField.getText().isEmpty() ||
@@ -72,11 +78,35 @@ public class RegisterPageController implements Initializable {
             return;
         }
 
-        // If all validations pass
-        showAlert(Alert.AlertType.INFORMATION, "Success", "Registration Validated", "All fields are valid!");
+        // If all validations pass, Insert into database
+
+
+        String query = "INSERT INTO users (firstName, lastName, email, dateOfBirth, type, country, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = getMyHikariConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)){
+
+            stmt.setString(1, firstNameField.getText());
+            stmt.setString(2, lastNameField.getText());
+            stmt.setString(3, emailField.getText());
+            stmt.setDate(4, java.sql.Date.valueOf(datePicker.getValue()));
+            stmt.setString(5, accountType.getValue());
+            stmt.setString(6, countryField.getText());
+            stmt.setString(7, passwordField.getText());
+
+            stmt.executeUpdate();
+            System.out.println("Registration successful!");
+
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Registration Validated", "Your account has been created successfully!");
+        returnToLoginPage(event);
     }
 
-    // Helper method to show alerts
+        // Helper method to show alerts
     private void showAlert(Alert.AlertType alertType, String title, String header, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

@@ -79,13 +79,6 @@ public class BookingsPaneController {
             Connection dbConnection = Main.getMyHikariConnection();
             ResultSet resultSet= dbConnection.prepareStatement("select * from Customers").executeQuery();
             while (resultSet.next()){
-                System.out.print(resultSet.getString("CustomerId"));
-                System.out.print(resultSet.getString("FirstName"));
-                System.out.print(resultSet.getString("LastName"));
-                System.out.print(resultSet.getString("Passport"));
-                System.out.print(resultSet.getString("Phone"));
-                System.out.print(resultSet.getString("Notes"));
-                System.out.println("");
                 Customer retrievedCustomer= new Customer(
                         resultSet.getInt("CustomerId"),
                         resultSet.getString("FirstName"),

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="832.0" maxWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.MainPageController">
+<VBox maxHeight="832.0" maxWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.MainPageController">
    <children>
       <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="1258.0" spacing="51.0">
          <children>
@@ -28,7 +28,7 @@
          <children>
             <VBox maxHeight="-Infinity" prefHeight="839.0" prefWidth="225.0" styleClass="sideBar" stylesheets="@../style.css">
                <children>
-                  <VBox prefHeight="340.0" prefWidth="225.0">
+                  <VBox prefHeight="294.0" prefWidth="225.0">
                      <children>
                         <Label minHeight="-Infinity" styleClass="customFont" stylesheets="@../style.css" text="Welcome to the System" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
                            <font>
@@ -37,7 +37,7 @@
                         </Label>
                         <ImageView fitHeight="220.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/night_resort.jpg" />
+                              <Image url="@../mainPageImages/night_resort.jpg" />
                            </image>
                            <VBox.margin>
                               <Insets />
@@ -45,6 +45,7 @@
                         </ImageView>
                      </children>
                   </VBox>
+                  <VBox prefHeight="188.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
                   <Button fx:id="dashboardButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDashboard" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Dashboard" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
@@ -53,40 +54,41 @@
                         <Insets />
                      </VBox.margin>
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons8/icons8-dashboard-96.png" />
+                              <Image url="@../mainPageImages/icons8/icons8-dashboard-96.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="dashboardButton1" alignment="TOP_LEFT" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#showAvailableRooms" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Rooms" textFill="WHITE">
+                  <Button fx:id="roomsButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#showAvailableRooms" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Rooms" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons8/icons8-bed-100%20(1).png" />
+                              <Image url="@../mainPageImages/icons8/icons8-bed-100%20(1).png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="dashboardButton11" alignment="TOP_LEFT" layoutX="10.0" layoutY="722.0" mnemonicParsing="false" onAction="#showBookings" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Bookings" textFill="WHITE">
+                  <Button fx:id="bookingsButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="722.0" mnemonicParsing="false" onAction="#showBookings" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Bookings" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons8/icons8-booking-100%20(1).png" />
+                              <Image url="@../mainPageImages/icons8/icons8-booking-100%20(1).png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
                   <HBox>
                      <VBox.margin>
-                        <Insets top="170.0" />
+                        <Insets />
                      </VBox.margin>
                      <children>
                         <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="80.0">
@@ -144,7 +146,7 @@
                      <children>
                         <ImageView fitHeight="596.0" fitWidth="605.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/Hotel%20Booking-amico.png" />
+                              <Image url="@../mainPageImages/Hotel%20Booking-amico.png" />
                            </image>
                         </ImageView>
                      </children>

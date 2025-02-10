@@ -91,7 +91,7 @@
                                  </children>
                               </HBox>
                               <TextField GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="login_emailTextField" GridPane.columnIndex="1" />
                               <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <HBox alignment="CENTER_LEFT" GridPane.rowIndex="1">
                                  <children>
@@ -139,7 +139,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#registerAccount" style="-fx-background-color: white;" text="Register" textFill="#0072bf" underline="true">
+                        <Button mnemonicParsing="false" onAction="#openRegisterStage" style="-fx-background-color: white;" text="Register" textFill="#0072bf" underline="true">
                            <VBox.margin>
                               <Insets top="3.0" />
                            </VBox.margin>

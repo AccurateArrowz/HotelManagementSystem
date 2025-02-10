@@ -71,7 +71,6 @@ CREATE TABLE IF NOT EXISTS USERS(
                        Email VARCHAR(100) UNIQUE NOT NULL,
                        DateOfBirth DATE NOT NULL,
                        Type ENUM('admin', 'receptionist') NOT NULL,
-                       Phone VARCHAR(20) UNIQUE NOT NULL,
                        Country VARCHAR(50) NOT NULL,
                        Password VARCHAR(255) NOT NULL
 );

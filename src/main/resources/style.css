@@ -3,6 +3,8 @@
  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
  /* -fx-effect: dropshadow(blurType, color, radius, spread, offsetX, offsetY) */
+
+ 
  .myButton{
      -fx-background-radius: 7px;
  }
@@ -29,8 +31,12 @@
     -fx-background-radius:10;
 }
 .dropshadow{
-     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
+     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 3.0);
 }
+/* .divDropShadow{
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
+
+} */
 .field{
     -fx-background-radius: 4px;
 
@@ -47,10 +53,10 @@
 .sideBar_button{
     -fx-background-color: #276977;
 }
-.sideBar_button:hover{
-    -fx-background-color:#5496A5;
-    -fx-border-color:#283678 ;
-    -fx-border-width: 0px 0px 0px 3px;
-}
+/*.sideBar_button:hover{*/
+/*    -fx-background-color:#5496A5;*/
+/*    -fx-border-color: #CDF0F7;*/
+/*    -fx-border-width: 0px 0px 0px 4px;
+} */
 
 

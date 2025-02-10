@@ -6,40 +6,41 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_RIGHT" prefHeight="761.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.BookingsPaneController">
+<VBox alignment="CENTER_RIGHT" prefHeight="761.0" prefWidth="1033.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.BookingsPaneController">
    <children>
-      <VBox prefHeight="325.0" prefWidth="1000.0">
-         <children>
-            <Label text="Customers">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="306.0" style="-fx-background-color: white;" />
-            <TableView fx:id="customersTable" prefHeight="246.0" prefWidth="1000.0" style="-fx-background-color: BAD8B6;">
-              <columns>
-                <TableColumn fx:id="customerIdColumn" minWidth="78.02788734436035" prefWidth="118.0" text="Customer Id" />
-                <TableColumn fx:id="firstNameColumn" minWidth="86.0" prefWidth="118.0" text="First Name" />
-                  <TableColumn fx:id="lastNameColumn" minWidth="86.0" prefWidth="118.0" text="Last Name" />
-                  <TableColumn fx:id="passportColumn" minWidth="81.0836181640625" prefWidth="118.0" text="Passport" />
-                  <TableColumn fx:id="phoneColumn" minWidth="83.16708374023438" prefWidth="118.0" text="Phone No" />
-                  <TableColumn fx:id="notesColumn" minWidth="-1.0" prefWidth="407.3814697265625" text="Notes" />
-              </columns>
-            </TableView>
-         </children>
-      </VBox>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="366.0" prefWidth="1000.0">
          <children>
-            <Label text="Customer Bookings">
+            <Label text=" Bookings">
                <font>
-                  <Font size="15.0" />
+                  <Font size="17.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
             </Label>
-            <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="325.0" style="-fx-background-color: white;" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="19.0" prefWidth="1003.0">
+               <children>
+                  <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../mainPageImages/icons8/icons8-search-100.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField maxWidth="-Infinity" prefHeight="7.0" prefWidth="325.0" style="-fx-background-color: D9D9D9; -fx-background-radius: 5px;">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
             <TableView fx:id="customerBookingsTable" prefHeight="378.0" prefWidth="1000.0" style="-fx-background-color: BAD8B6;">
               <columns>
                 <TableColumn fx:id="bookings_customerId" prefWidth="143.0" text="Customer Id" />
@@ -50,25 +51,68 @@
                   <TableColumn fx:id="bookings_discount" prefWidth="143.0" text="Discount" />
                   <TableColumn fx:id="bookings_finalPrice" prefWidth="143.0" text="Final Price" />
               </columns>
+               <VBox.margin>
+                  <Insets top="7.0" />
+               </VBox.margin>
             </TableView>
          </children>
+      </VBox>
+      <VBox prefHeight="325.0" prefWidth="985.0">
+         <children>
+            <Label text="Customers Details">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="18.0" prefWidth="1001.0">
+               <children>
+                  <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../mainPageImages/icons8/icons8-search-100.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField maxWidth="-Infinity" prefHeight="7.0" prefWidth="325.0" style="-fx-background-color: D9D9D9; -fx-background-radius: 5px;">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <TableView fx:id="customersTable" prefHeight="259.0" prefWidth="1006.0" style="-fx-background-color: BAD8B6;">
+              <columns>
+                <TableColumn fx:id="customerIdColumn" minWidth="78.02788734436035" prefWidth="118.0" text="Customer Id" />
+                <TableColumn fx:id="firstNameColumn" minWidth="86.0" prefWidth="118.0" text="First Name" />
+                  <TableColumn fx:id="lastNameColumn" minWidth="86.0" prefWidth="118.0" text="Last Name" />
+                  <TableColumn fx:id="passportColumn" minWidth="81.0836181640625" prefWidth="118.0" text="Passport" />
+                  <TableColumn fx:id="phoneColumn" minWidth="83.16708374023438" prefWidth="118.0" text="Phone No" />
+                  <TableColumn fx:id="notesColumn" minWidth="-1.0" prefWidth="407.3814697265625" text="Notes" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="7.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+         <opaqueInsets>
+            <Insets top="20.0" />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
       </VBox>
       <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="89.0" prefWidth="189.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
          <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="84.0" text="Book New">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
+            <Button fx:id="bookRoomButton" alignment="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #16404D;" styleClass="myButton" text="Book New" textFill="WHITE">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="bookRoomButton" alignment="CENTER" mnemonicParsing="false" prefHeight="59.0" prefWidth="82.0" style="-fx-background-color: #16404D;" text="+" textFill="WHITE">
-               <font>
-                  <Font size="37.0" />
+                  <Font size="18.0" />
                </font>
             </Button>
          </children>
