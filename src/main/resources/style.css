@@ -18,6 +18,12 @@
      -fx-background-color: #4b8bc3;
      -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.15), 2.0, 0.0, 2.0, 3.0);
  }
+ .openRegisterPage:hover{
+    -fx-background-color: white;
+ }
+ .openRegisterPage:hover{
+    -fx-background-color: #f0f0f0;
+ }
 
 .blueGradient {
     -fx-background-color: linear-gradient(to right, #0072ff, #00d4ff);
@@ -52,6 +58,18 @@
 
 .sideBar_button{
     -fx-background-color: #276977;
+}
+
+.bookRoomPane{
+    -fx-background-image: url("./mainPageImages/room.png");
+
+    -fx-background-size: cover; /* Adjusts image size */
+    -fx-background-repeat: no-repeat; /* Prevents repeating */
+}
+.bookRoom_formDiv{
+    -fx-padding:20px 20 20 0px;
+    -fx-background-color: rgba(235,240,241,0.6);
+    -fx-background-radius: 20px;
 }
 /*.sideBar_button:hover{*/
 /*    -fx-background-color:#5496A5;*/

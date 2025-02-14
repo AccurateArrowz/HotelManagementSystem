@@ -48,7 +48,7 @@ public class RoomsPaneController implements Initializable {
     TableColumn<Rooms, String> roomPriceColumn;
     @FXML
     TableColumn<Rooms, String> cleaningStatusColumn;
-    ObservableList<Rooms> roomsList = FXCollections.observableArrayList();
+    private static ObservableList<Rooms> roomsList = FXCollections.observableArrayList();
     Connection dbConnection;
 
     @Override
@@ -307,5 +307,16 @@ public class RoomsPaneController implements Initializable {
         } else {
             System.out.println("Deletion cancelled.");
         }
+    }
+    public static void updateRoomToBooked(Integer roomId){
+        //for updating once a room is booked from bookings page
+        for(Rooms room: roomsList){ 
+            if(room.getRoomNo().equals(roomId)){
+                room.setRoomAvailability(RoomAvailabilityStatuses.BOOKED);//changing status from avaliable to booked
+            }
+        }
+    }
+    public static List<Rooms> roomsListGetter(){
+        return new ArrayList<>(roomsList);//send a copy
     }
 }

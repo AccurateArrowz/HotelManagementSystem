@@ -2,14 +2,20 @@ package org.example.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.example.Main;
 import org.example.Model.Booking;
 import org.example.Model.Customer;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,30 +55,86 @@ public class BookingsPaneController {
     private TableColumn<Booking, Double> bookings_discount;
     @FXML
     private TableColumn<Booking, Double> bookings_finalPrice;
+    @FXML
+    private TextField bookingsSearchField;
+    @FXML
+    private TextField customersSearchField;
     //obserable list for both the tables
     private ObservableList<Customer> customerList = FXCollections.observableArrayList();
-    private ObservableList<Booking> bookingsList = FXCollections.observableArrayList();
+    private static ObservableList<Booking> bookingsList = FXCollections.observableArrayList();
 
+    private FilteredList<Booking> filteredBookings = new FilteredList<>(bookingsList, booking->true);
+    private FilteredList<Customer> filteredCustomers = new FilteredList<>(customerList, customer->true);
+    public static BookingsPaneController instance;
+
+    public BookingsPaneController() {
+        instance = this;
+    }
+    public static BookingsPaneController getInstance() {
+        return instance;
+    }
     @FXML
     public void initialize() {
         //mapping appropriate fields of Customer class to the columns
-            customerIdColumn.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("customerId"));
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<Customer,String>("firstName"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<Customer,String>("lastName"));
-        passportColumn.setCellValueFactory(new PropertyValueFactory<Customer,String>("passport"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer,String>("phone"));
-        notesColumn.setCellValueFactory(new PropertyValueFactory<Customer,String>("notes"));
+        customerIdColumn.setCellValueFactory(new PropertyValueFactory<Customer, Integer>("customerId"));
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
+        passportColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("passport"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
+        notesColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("notes"));
         // mapping appropriate fields of Bookings class to bookings Table
-        bookings_customerId.setCellValueFactory(new PropertyValueFactory<Booking,Integer>("customerId"));
-        bookings_roomId.setCellValueFactory(new PropertyValueFactory<Booking,Integer>("roomId"));
-        bookings_roomPrice.setCellValueFactory(new PropertyValueFactory<Booking,Double>("roomPrice"));
-        bookings_checkinDate.setCellValueFactory(new PropertyValueFactory<Booking,LocalDate>("checkInDate"));
-        bookings_checkoutDate.setCellValueFactory(new PropertyValueFactory<Booking,LocalDate>("checkOutDate"));
-        bookings_discount.setCellValueFactory(new PropertyValueFactory<Booking,Double>("discount"));
-        bookings_finalPrice.setCellValueFactory(new PropertyValueFactory<Booking,Double>("finalPrice"));
+        bookings_customerId.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("customerId"));
+        bookings_roomId.setCellValueFactory(new PropertyValueFactory<Booking, Integer>("roomId"));
+        bookings_roomPrice.setCellValueFactory(new PropertyValueFactory<Booking, Double>("roomPrice"));
+        bookings_checkinDate.setCellValueFactory(new PropertyValueFactory<Booking, LocalDate>("checkInDate"));
+        bookings_checkoutDate.setCellValueFactory(new PropertyValueFactory<Booking, LocalDate>("checkOutDate"));
+        bookings_discount.setCellValueFactory(new PropertyValueFactory<Booking, Double>("discount"));
+        bookings_finalPrice.setCellValueFactory(new PropertyValueFactory<Booking, Double>("finalPrice"));
+
         populateCustomersTable();
         populateBookingsTable();
-        }
+        addDynamicSearch(); //for bookings and customers search
+    }
+
+
+
+    private void addDynamicSearch() {
+        //applying filter to filteredList once the searchField is entered
+        bookingsSearchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredBookings.setPredicate(booking-> {
+                if (newValue.isEmpty()) {
+                    return true;
+                }
+                String keyword = newValue.toLowerCase();
+                return (String.valueOf(booking.getCustomerId())).contains(keyword) ||
+                        (String.valueOf(booking.getCheckInDate())).contains(keyword) ||
+                        (String.valueOf(booking.getCheckOutDate())).contains(keyword);
+
+            });
+        });
+        customersSearchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredCustomers.setPredicate(customer -> {
+                if (newValue.isEmpty()) {
+                    return true;
+                }
+                String keyword = newValue.toLowerCase();
+
+                // Converting all fields to lowercase before checking contains
+                String customerId = String.valueOf(customer.getCustomerId()).toLowerCase();
+                String firstName = (customer.getFirstName() != null) ? customer.getFirstName().toLowerCase() : "";
+                String lastName = (customer.getLastName() != null) ? customer.getLastName().toLowerCase() : "";
+                String passport = (customer.getPassport() != null) ? customer.getPassport().toLowerCase() : "";
+                String phone = (customer.getPhone() != null) ? customer.getPhone().toLowerCase() : "";
+
+                return customerId.contains(keyword) ||
+                        firstName.contains(keyword) ||
+                        lastName.contains(keyword) ||
+                        passport.contains(keyword) ||
+                        phone.contains(keyword);
+            });
+        });
+    }
+
 
     private void populateCustomersTable() {
         try {
@@ -90,7 +152,7 @@ public class BookingsPaneController {
                 customerList.add(retrievedCustomer);
 
             }
-            customersTable.setItems(customerList);
+            customersTable.setItems(filteredCustomers);
             customersTable.refresh();
         }
 
@@ -124,31 +186,48 @@ public class BookingsPaneController {
                         resultSet.getDouble("FinalPrice")
                 );
 
-                bookingsList.add(retrievedBooking);
+                bookingsList.add(retrievedBooking);//storing in the observableList so that it is safe
             }
-//            System.out.println(bookingsList);
-            customerBookingsTable.setItems(bookingsList);
+
+            customerBookingsTable.setItems(filteredBookings);//however, inserting the filteredList for any filter functionality in future
             customerBookingsTable.refresh();
         }
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void insertBooking(Booking booking) {
-
-        try (Connection dbConnection = Main.getMyHikariConnection();
-             PreparedStatement statement = dbConnection.prepareStatement("INSERT INTO Bookings (CustomerId, RoomId, RoomPrice, CheckInDate, CheckOutDate, Discount, FinalPrice) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
-            statement.setInt(1, booking.getCustomerId());
-            statement.setInt(2, booking.getRoomId());
-            statement.setDouble(3, booking.getRoomPrice());
-            statement.setDate(4, java.sql.Date.valueOf(booking.getCheckInDate()));
-            statement.setDate(5, java.sql.Date.valueOf(booking.getCheckOutDate()));
-            statement.setDouble(6, booking.getDiscount());
-            statement.setDouble(7, booking.getFinalPrice());
-
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+    public void openBookNewRoomPage()  {
+        Stage newRoomStage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFolder/BookNewRoom.fxml"));
+            Scene scene = new Scene(loader.load());
+            newRoomStage.setScene(scene);
+            newRoomStage.setTitle("Book New Room");
+            newRoomStage.show();
         }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
+    public static void updateBooking(Integer customerId, Integer roomId, LocalDate checkInDate, LocalDate checkOutDate, Double roomPrice, Double discount) {
+        for(Booking booking: bookingsList){
+            if(booking.getCustomerId().equals(customerId)){
+                booking.setRoomId(roomId);
+                booking.setCheckInDate(checkInDate);
+                booking.setCheckOutDate(checkOutDate);
+                booking.setDiscount(discount);
+                Double discountAmount= (roomPrice*discount)/100;
+                booking.setFinalPrice(roomPrice - discountAmount);
+                if(instance!=null){
+                    instance.customerBookingsTable.refresh();
+                }
+            }
+        }
+
+
+
+    }
+
 }

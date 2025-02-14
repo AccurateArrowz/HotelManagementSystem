@@ -1,81 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="618.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.CustomerPageController">
+<VBox alignment="CENTER" prefHeight="623.0" prefWidth="713.0" styleClass="bookRoomPane" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.BookNewRoomController">
    <children>
-      <HBox alignment="CENTER" prefHeight="130.0" prefWidth="490.0">
+      <VBox fx:id="bookRoomVbox" alignment="CENTER" maxWidth="-Infinity" prefHeight="350.0" prefWidth="479.0" spacing="7.0" styleClass="bookRoom_formDiv">
          <children>
-            <HBox prefHeight="150.0" prefWidth="146.0" style="-fx-background-color: pink;">
+            <Label text="Book A New Room">
+               <font>
+                  <Font name="AppleMyungjo Regular" size="23.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox>
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../Downloads/project_images/user-front-side-with-white-background.jpg" />
-                     </image>
-                  </ImageView>
-               </children></HBox>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Customer Type">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="19.0" prefWidth="160.0">
+                     <children>
+                        <RadioButton fx:id="newCustomerRadioButton" mnemonicParsing="false" onAction="#showCustomerDetailsFields" text="New">
+<!--                           -->
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="customerType" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="existingCustomerRadioButton" mnemonicParsing="false" onAction="#removeCustomerDetailsFields" text="Existing" toggleGroup="$customerType" />
+<!--                        -->
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Customer Id">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="customerIdField" maxWidth="-Infinity" prefHeight="26.0" prefWidth="159.0" promptText="Auto-generated" />
+               </children>
+            </HBox>
+            <VBox fx:id="customerDetailsVbox" spacing="7.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" prefWidth="210.0" text="First Name">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField maxWidth="-Infinity" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" prefWidth="210.0" text="Last Name">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField maxWidth="-Infinity" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" prefWidth="210.0" text="Passport">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField maxWidth="-Infinity" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" prefWidth="210.0" text="Phone">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField maxWidth="-Infinity" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="210.0" text="Notes">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextArea maxWidth="-Infinity" prefHeight="39.0" prefWidth="242.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Room Id">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="roomIdChoiceBox" prefHeight="26.0" prefWidth="164.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Room Price">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="roomPriceField" maxWidth="-Infinity" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Discount (%)">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="discountField" maxWidth="-Infinity" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Check-in Date">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="checkInDatePicker" prefHeight="26.0" prefWidth="165.0" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" prefWidth="210.0" text="Check-out Date">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="checkOutDatePicker" prefHeight="26.0" prefWidth="165.0" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <GridPane maxWidth="-Infinity" prefHeight="359.0" prefWidth="434.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="208.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="226.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="Customer Id" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Label text="First Name" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Label text="Check-in Date" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-            <Label text="Room Id" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-            <Label text="Notes" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-            <Label text="Passport" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Label text="Phone" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Label text="Last Name" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label text="Check-out Date" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-            <TextField maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="159.0" GridPane.columnIndex="1" />
-            <TextArea maxWidth="-Infinity" prefHeight="40.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ChoiceBox prefHeight="26.0" prefWidth="164.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <DatePicker prefHeight="26.0" prefWidth="165.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <DatePicker prefHeight="26.0" prefWidth="165.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-         </children>
+      </VBox>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#bookNewRoom" prefHeight="31.0" prefWidth="191.0" style="-fx-background-color: #C1CCD0; -fx-background-radius: 17px;" text="Book">
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets />
          </VBox.margin>
-      </GridPane>
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="72.0" text="Button">
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="15.0" />
+         </font>
       </Button>
    </children>
-   <padding>
-      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-   </padding>
 </VBox>

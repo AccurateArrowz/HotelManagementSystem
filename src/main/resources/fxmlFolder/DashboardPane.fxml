@@ -29,7 +29,7 @@
                      <children>
                         <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons8/icons8-facebook-512.png" />
+                              <Image url="@../mainPageImages/icons8/icons8-facebook-512.png" />
                            </image>
                         </ImageView>
                         <Label text="1000+ followers" textFill="#1c6cff">
@@ -47,7 +47,7 @@
                      <children>
                         <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons8/icons8-twitter-circled-512.png" />
+                              <Image url="@../mainPageImages/icons8/icons8-twitter-circled-512.png" />
                            </image>
                         </ImageView>
                         <Label text="1200+ followers" textFill="#1c6cff">
@@ -65,7 +65,7 @@
                      <children>
                         <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/icons8/icons8-tiktok-512.png" />
+                              <Image url="@../mainPageImages/icons8/icons8-tiktok-512.png" />
                            </image>
                         </ImageView>
                         <Label text="700+ followers" textFill="#1c6cff">
