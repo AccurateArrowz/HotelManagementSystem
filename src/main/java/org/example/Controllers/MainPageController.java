@@ -4,14 +4,18 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.StrokeTransition;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -26,39 +30,35 @@ public class MainPageController implements Initializable {
    Button roomsButton;
    @FXML
    Button bookingsButton;
+   @FXML
+   Button activitiesButton;
+   @FXML
+   Button logoutButton;
    private Button selectedButton = null;
+
 
 
    @FXML
    HBox rightPane; //parent pane on the right side
    Pane roomsPane;
-   Pane customersPane;
+   Pane bookingsPane;
    Pane dashboardPane;
-   Pane employeesPane;
+   ScrollPane activitiesPane;
 
 
    @Override
    public void initialize(URL url, ResourceBundle resourceBundle) {
-      try {
-         FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/fxmlFolder/RoomsPane.fxml"));
-         roomsPane = fxmlLoader1.load();
-         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/fxmlFolder/BookingsPane.fxml"));
-         customersPane = fxmlLoader2.load();
-         FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/fxmlFolder/DashboardPane.fxml"));
-         dashboardPane = fxmlLoader3.load();
 
-      } catch (IOException e) {
-         throw new RuntimeException(e);
-      }
       displayHoverEffect(dashboardButton, this::showDashboard);
       displayHoverEffect(roomsButton, this::showAvailableRooms);
       displayHoverEffect(bookingsButton, this::showBookings);
+      displayHoverEffect(activitiesButton, this::showActivities);
    }
 
    public void displayHoverEffect(Button button, Runnable action) {
       // Animation: Border & Background Change on Hover
       Timeline borderIn = new Timeline(
-              new KeyFrame(Duration.millis(50),
+              new KeyFrame(Duration.millis(25),
                       new KeyValue(button.styleProperty(), "-fx-border-width: 0px 0px 0px 4px;" +
                               " -fx-border-color: #CDF0F7;" +
                               " -fx-background-color: #5496A5;"))
@@ -66,7 +66,7 @@ public class MainPageController implements Initializable {
 
       // Animation: Border & Background Reset on Exit (Only if not selected)
       Timeline borderOut = new Timeline(
-              new KeyFrame(Duration.millis(50),
+              new KeyFrame(Duration.millis(25),
                       new KeyValue(button.styleProperty(), "-fx-border-width: 0px 0px 0px 4px;" +
                               " -fx-border-color: transparent;" +
                               " -fx-background-color: #276977;"))
@@ -100,21 +100,67 @@ public class MainPageController implements Initializable {
 //
    @FXML
    public void showDashboard(){
-      rightPane.getChildren().clear();
-      rightPane.getChildren().add(dashboardPane);
+      try {
+         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/DashboardPane.fxml"));
+         dashboardPane = fxmlLoader.load();
+         rightPane.getChildren().clear();
+         rightPane.getChildren().add(dashboardPane);
+
+      } catch (IOException e) {
+         throw new RuntimeException(e);
+      }
+
    }
 
 
    @FXML
    public void showAvailableRooms()  {
-      rightPane.getChildren().clear();
-      rightPane.getChildren().add(roomsPane);
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/RoomsPane.fxml"));
+       try {
+           roomsPane = fxmlLoader.load();
+          rightPane.getChildren().clear();
+          rightPane.getChildren().add(roomsPane);
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
+
    }
    @FXML
    public void showBookings() {
-      rightPane.getChildren().clear();
-      rightPane.getChildren().add(customersPane);
+       try {
+          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/BookingsPane.fxml"));
+          bookingsPane = fxmlLoader.load();
+          rightPane.getChildren().clear();
+          rightPane.getChildren().add(bookingsPane);
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
+
    }
 
 
+   public void showActivities() {
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/Activities.fxml"));
+       try {
+           activitiesPane= fxmlLoader.load();
+          rightPane.getChildren().clear();
+          rightPane.getChildren().add(activitiesPane);
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
+
+   }
+
+   public void logOut(){
+      Stage mainStage = (Stage) logoutButton.getScene().getWindow();
+      try {
+         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/LoginPage.fxml"));
+         Scene loginScene = new Scene(fxmlLoader.load());
+         mainStage.setScene(loginScene);
+      }
+      catch (IOException e) {
+         System.out.println(e.getMessage());
+      }
+
+   }
 }

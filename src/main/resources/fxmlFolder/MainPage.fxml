@@ -13,22 +13,22 @@
    <children>
       <HBox alignment="BOTTOM_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="1265.0">
          <children>
-            <HBox prefHeight="40.0" prefWidth="262.0" />
-            <HBox layoutX="10.0" layoutY="25.0" maxHeight="-Infinity" prefHeight="1.0" prefWidth="1007.0" style="-fx-background-color: black;">
+            <HBox prefHeight="40.0" prefWidth="278.0" />
+            <HBox layoutX="10.0" layoutY="25.0" maxHeight="-Infinity" prefHeight="1.0" prefWidth="1007.0" style="-fx-background-color: #276977;">
                <HBox.margin>
-                  <Insets bottom="7.0" />
+                  <Insets bottom="9.0" />
                </HBox.margin>
             </HBox>
             <Button fx:id="profileButton" maxHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 30px; -fx-background-color: #d2ecf3;">
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Downloads/project_images/icons8-contact-info-48.png" />
+                        <Image url="@../mainPageImages/icons8/icons8-contact-info-48.png" />
                      </image>
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="4.0" right="13.0" />
+                  <Insets left="7.0" right="13.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -60,7 +60,7 @@
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="188.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
+                  <VBox prefHeight="128.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
                   <Button fx:id="dashboardButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDashboard" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Dashboard" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
@@ -100,27 +100,45 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
-                  <HBox>
+                  <Button fx:id="activitiesButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="519.0" mnemonicParsing="false" onAction="#showActivities" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Activities" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../mainPageImages/icons8/activitiesSwimming.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <VBox prefHeight="88.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
+                  <HBox prefHeight="63.0" prefWidth="225.0">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="logoutButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="80.0">
+                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #b1c1d5;">
                            <graphic>
-                              <ImageView fitHeight="60.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="46.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../Downloads/project_images/icons8-logout-96.png" />
+                                    <Image url="@../mainPageImages/icons8/logout1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
+                           <padding>
+                              <Insets right="0.1" top="0.1" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
                         </Button>
-                        <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="85.0" text="Log Out" textAlignment="CENTER">
+                        <Label alignment="TOP_LEFT" prefHeight="19.0" prefWidth="85.0" text="Log Out" textAlignment="CENTER">
                            <font>
                               <Font size="22.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="20.0" top="10.0" />
+                              <Insets left="12.0" top="6.0" />
                            </HBox.margin>
                         </Label>
                      </children>

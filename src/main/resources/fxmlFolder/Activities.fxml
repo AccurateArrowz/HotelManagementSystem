@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane prefHeight="1370.0" prefWidth="1033.0" stylesheets="@../stylesheets/activities.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.ActivitiesController">
+   <content>
+      <VBox prefHeight="1327.0" prefWidth="1013.0" style="-fx-background-color: white;">
+         <children>
+            <TilePane hgap="150.0" maxWidth="-Infinity" prefColumns="2" prefHeight="1271.0" prefWidth="983.0" style="-fx-background-color: pink;" stylesheets="@../stylesheets/activities.css" vgap="50.0">
+               <children>
+                  <VBox prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox">
+                     <children>
+                        <ImageView fitHeight="249.0" fitWidth="408.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../activitiesImg/kelvin-zyteng-qVZAGZFU25g-unsplash.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="activityTitle" text="Swimming" />
+                        <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                        <VBox styleClass="activityDescriptionVBox">
+                           <children>
+                              <Label styleClass="activityDescription" text=" Enjoy a refreshing swim in our temperature-controlled pool." />
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Timing: " />
+                                    <Label text="7am-8pm" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Price:" />
+                                    <Label text="\$10 per hour" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="30.0" prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox">
+                     <children>
+                        <ImageView fitHeight="249.0" fitWidth="408.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../activitiesImg/yoga1.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="activityTitle" text="Yoga" />
+                        <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                        <VBox styleClass="activityDescriptionVBox" />
+                        <VBox styleClass="activityDescriptionVBox">
+                           <children>
+                              <Label styleClass="activityDescription" text="Relax and rejuvenate with guided yoga sessions." />
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Timing: " />
+                                    <Label text="5am-8am" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Price:" />
+                                    <Label text="\$15 per session" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="30.0" prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox">
+                     <children>
+                        <ImageView fitHeight="249.0" fitWidth="408.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../activitiesImg/pingpong.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="activityTitle" text="Table Tennis" />
+                        <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                        <HBox />
+                        <VBox styleClass="activityDescriptionVBox">
+                           <children>
+                              <Label styleClass="activityDescription" text="Have fun with a fast-paced game in our indoor sports area." />
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Timing: " />
+                                    <Label text="7am-10pm" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Price:" />
+                                    <Label text="\$5 per hour" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="442.0" prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox">
+                     <children>
+                        <ImageView fitHeight="249.0" fitWidth="408.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../activitiesImg/gym.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="activityTitle" text="Gym" />
+                        <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                        <VBox styleClass="activityDescriptionVBox">
+                           <children>
+                              <Label styleClass="activityDescription" text="Stay fit with our modern equipment and personal training options." />
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Timing: " />
+                                    <Label text="6am -10pm" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Price:" />
+                                    <Label text="\$20 per day or $50 for a 3-day pass" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="538.0" layoutY="442.0" prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox">
+                     <children>
+                        <ImageView fitHeight="249.0" fitWidth="408.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../activitiesImg/cycling.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="activityTitle" text="Cycling" />
+                        <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                        <VBox styleClass="activityDescriptionVBox">
+                           <children>
+                              <Label styleClass="activityDescription" text="Explore scenic routes with our premium bicycles." />
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Timing: " />
+                                    <Label text="7am-6pm" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="2.0">
+                                 <children>
+                                    <Label styleClass="activityDescription" text="Price:" />
+                                    <Label text="\$10 per hour" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="5.0" top="20.0" />
+               </padding>
+            </TilePane>
+            <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="934.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#openAddActivityPage" prefHeight="57.0" prefWidth="54.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                     <graphic>
+                        <ImageView fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@../activitiesImg/icons8-upload-100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="0.1" left="0.1" right="0.1" top="0.1" />
+                     </padding>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

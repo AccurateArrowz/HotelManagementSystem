@@ -1,0 +1,21 @@
+.activityVBox{
+    -fx-background-color: rgb(180, 178, 223);
+    -fx-padding: 10px;
+    -fx-background-radius:10px;
+    -fx-spacing:5px;
+}
+.activityVBox>ImageView{
+    -fx-fit-width:408px;
+    -fx-border-color: black;
+    -fx-border-width: 3px;  
+    /* -fx-border-style: */
+}
+
+
+.activityTitle{
+    -fx-font-size:16px;
+}
+.activityDescriptionVBox{
+    -fx-font-size:13px;
+    -fx-spacing:3px;
+}

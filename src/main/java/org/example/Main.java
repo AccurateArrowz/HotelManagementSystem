@@ -11,13 +11,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Main extends Application{
+    public static Stage loginStage; //for later reference to use FileChooser
     @FXML
     TextField login_emailTextField;
     @FXML
@@ -38,13 +42,19 @@ public class Main extends Application{
     }
 
     @Override
-    public void start(Stage loginStage) throws Exception {
-        loginStage.setTitle("Hello World");
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Hello World");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/LoginPage.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        loginStage.setScene(scene);
-        loginStage.show();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        loginStage = primaryStage;
+
+    }
+    public static Stage getLoginStage() {
+        return loginStage;
     }
 
     public void authenticateAccount(ActionEvent event) throws IOException {
@@ -55,8 +65,8 @@ public class Main extends Application{
         Stage mainPageStage = new Stage();
         Scene scene= new Scene(mainPageFxmlLoader.load());
         mainPageStage.setScene(scene);
-        Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        loginStage.close();
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.close();
         mainPageStage.show();
     }
 
@@ -68,4 +78,6 @@ public class Main extends Application{
         registerStage.setScene(scene);
         registerStage.show();
     }
+
+
 }

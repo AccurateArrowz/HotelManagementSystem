@@ -11,6 +11,7 @@
  .myButton:hover{
      -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.15), 2.0, 0.0, 2.0, 5.0);
  }
+
  .signInButton{
      -fx-background-color:  #0072BF;
  }
@@ -36,6 +37,7 @@
     -fx-background-color: rgba(0,136,255,0.14);
     -fx-background-radius:10;
 }
+
 .dropshadow{
      -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 3.0);
 }
@@ -58,7 +60,12 @@
 
 .sideBar_button{
     -fx-background-color: #276977;
+
 }
+ .sideCar_button{
+     -fx-background-color: #b1c1d5;
+
+ }
 
 .bookRoomPane{
     -fx-background-image: url("./mainPageImages/room.png");

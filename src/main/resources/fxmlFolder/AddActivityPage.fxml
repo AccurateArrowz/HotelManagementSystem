@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.ActivitiesController">
+   <children>
+      <VBox maxWidth="-Infinity" prefHeight="403.0" prefWidth="343.0" styleClass="activityVBox" stylesheets="@../stylesheets/activities.css">
+         <children>
+            <VBox style="-fx-border-color: black; -fx-border-radius: 3px;">
+               <children>
+                  <ImageView fx:id="previewImageView" fitHeight="249.0" fitWidth="351.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <Button fx:id="selectImgButton" mnemonicParsing="false" onAction="#selectImg" style="-fx-background-radius: 4px;" text="Select Image">
+               <font>
+                  <Font size="9.0" />
+               </font></Button>
+            <TextField maxWidth="-Infinity" prefHeight="58.0" prefWidth="195.0" promptText="ActivityName" />
+            <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+            <TextField promptText="Description">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+            <VBox styleClass="activityDescriptionVBox">
+               <children>
+                  <HBox spacing="2.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="53.0" styleClass="activityDescription" text="Timing: " />
+                        <TextField promptText="AM/PM">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox spacing="2.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="54.0" styleClass="activityDescription" text="Price ($):" />
+                        <TextField promptText="0.00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="427.0">
+         <children>
+            <Button mnemonicParsing="false" text="Cancel" />
+            <Button mnemonicParsing="false" text="Add" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

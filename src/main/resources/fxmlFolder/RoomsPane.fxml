@@ -176,14 +176,14 @@
                 <TableColumn fx:id="roomNoColumn" prefWidth="153.0" text="Room No" />
                 <TableColumn fx:id="roomTypeColumn" prefWidth="153.0" text="Type" />
                   <TableColumn fx:id="roomAvailabilityColumn" prefWidth="153.0" text="Availability" />
-                  <TableColumn fx:id="roomPriceColumn" prefWidth="153.0" text="Price" />
-                  <TableColumn fx:id="cleaningStatusColumn" prefWidth="153.0" text="Cleaning Status" />
+                  <TableColumn fx:id="roomPriceColumn" prefWidth="126.882568359375" text="Price" />
+                  <TableColumn fx:id="cleaningStatusColumn" prefWidth="148.63397216796875" text="Cleaning Status" />
               </columns>
             </TableView>
          </children>
       </VBox>
    </children>
    <padding>
-      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+      <Insets bottom="20.0" right="20.0" top="20.0" />
    </padding>
 </HBox>

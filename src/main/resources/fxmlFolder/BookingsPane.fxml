@@ -14,7 +14,7 @@
 
 <VBox alignment="CENTER_RIGHT" prefHeight="761.0" prefWidth="1033.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.BookingsPaneController">
    <children>
-      <VBox layoutX="10.0" layoutY="10.0" prefHeight="366.0" prefWidth="1000.0">
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="370.0" prefWidth="1013.0">
          <children>
             <Label text=" Bookings">
                <font>
@@ -41,7 +41,7 @@
                   </TextField>
                </children>
             </HBox>
-            <TableView fx:id="customerBookingsTable" prefHeight="378.0" prefWidth="1000.0" style="-fx-background-color: BAD8B6;" tableMenuButtonVisible="true">
+            <TableView fx:id="customerBookingsTable" prefHeight="325.0" prefWidth="1013.0" style="-fx-background-color: BAD8B6;" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn fx:id="bookings_customerId" maxWidth="500.0" prefWidth="137.0" text="Customer Id" />
                 <TableColumn fx:id="bookings_roomId" maxWidth="500.0" prefWidth="137.0" text="Room Id" />
@@ -91,7 +91,7 @@
                   <TableColumn fx:id="lastNameColumn" minWidth="86.0" prefWidth="115.0" text="Last Name" />
                   <TableColumn fx:id="passportColumn" minWidth="81.0836181640625" prefWidth="115.0" text="Passport" />
                   <TableColumn fx:id="phoneColumn" minWidth="83.16708374023438" prefWidth="115.0" text="Phone No" />
-                  <TableColumn fx:id="notesColumn" minWidth="-1.0" prefWidth="407.3814697265625" text="Notes" />
+                  <TableColumn fx:id="notesColumn" minWidth="-1.0" prefWidth="380.461181640625" text="Notes" />
               </columns>
                <VBox.margin>
                   <Insets top="7.0" />
@@ -102,7 +102,7 @@
             <Insets top="20.0" />
          </opaqueInsets>
          <VBox.margin>
-            <Insets top="40.0" />
+            <Insets top="15.0" />
          </VBox.margin>
       </VBox>
       <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="89.0" prefWidth="189.0">
@@ -119,6 +119,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+      <Insets bottom="20.0" right="20.0" top="20.0" />
    </padding>
 </VBox>
