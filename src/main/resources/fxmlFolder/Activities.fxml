@@ -9,12 +9,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="1370.0" prefWidth="1033.0" stylesheets="@../stylesheets/activities.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.ActivitiesController">
+<ScrollPane fitToWidth="true" prefHeight="1370.0" prefWidth="1033.0" style="-fx-border-color: white;" stylesheets="@../stylesheets/activities.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.ActivitiesController">
    <content>
       <VBox prefHeight="1327.0" prefWidth="1013.0" style="-fx-background-color: white;">
          <children>
-            <TilePane hgap="150.0" maxWidth="-Infinity" prefColumns="2" prefHeight="1271.0" prefWidth="983.0" style="-fx-background-color: pink;" stylesheets="@../stylesheets/activities.css" vgap="50.0">
+            <Label alignment="CENTER" prefHeight="47.0" prefWidth="951.0" text="Activities We Offer" underline="true">
+               <font>
+                  <Font name="Apple Chancery" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="39.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <TilePane fx:id="activitiesTilePane" alignment="CENTER" hgap="150.0" prefColumns="2" prefHeight="1216.0" prefWidth="1028.0" stylesheets="@../stylesheets/activities.css" vgap="50.0">
                <children>
                   <VBox prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox">
                      <children>
@@ -163,7 +172,7 @@
                   <Insets bottom="20.0" left="5.0" top="20.0" />
                </padding>
             </TilePane>
-            <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="934.0">
+            <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="56.0" prefWidth="1007.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#openAddActivityPage" prefHeight="57.0" prefWidth="54.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
                      <graphic>

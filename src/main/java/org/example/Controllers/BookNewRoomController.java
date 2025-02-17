@@ -74,6 +74,10 @@ public class BookNewRoomController implements Initializable {
     private void showRoomPrice() {
         //right now accesing the roomsList from frontend , and not retrieving from the db
         List<Rooms> roomsList= roomsListGetter();
+        System.out.println("in showRoomPrice method");
+        if (roomsList == null || roomsList.isEmpty()) {
+            System.out.println("roomsList is empty or null!");
+        }
         for (Rooms room : roomsList) {
             if(room.getRoomNo().equals(roomIdChoiceBox.getValue())){
                 roomPriceField.setText(room.getRoomPrice().toString());
@@ -99,9 +103,10 @@ public class BookNewRoomController implements Initializable {
         LocalDate checkInDate = checkInDatePicker.getValue();
         LocalDate checkOutDate = checkOutDatePicker.getValue();
 
+        //update in other pages also
         RoomsPaneController.updateRoomToBooked(bookedRoomId);
-
         BookingsPaneController.updateBooking(customerId, bookedRoomId, checkInDate, checkOutDate, roomPrice, discount);
+
         Stage bookNewRoomStage = (Stage)((Node)e.getSource()).getScene().getWindow();
         bookNewRoomStage.close();
     }

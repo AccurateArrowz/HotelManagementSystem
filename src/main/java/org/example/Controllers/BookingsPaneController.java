@@ -65,8 +65,10 @@ public class BookingsPaneController {
 
     private FilteredList<Booking> filteredBookings = new FilteredList<>(bookingsList, booking->true);
     private FilteredList<Customer> filteredCustomers = new FilteredList<>(customerList, customer->true);
-    public static BookingsPaneController instance;
 
+//    private static TableView customerBookingsTableReference;
+
+    public static BookingsPaneController instance;
     public BookingsPaneController() {
         instance = this;
     }
@@ -200,9 +202,10 @@ public class BookingsPaneController {
         Stage newRoomStage = new Stage();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmlFolder/BookNewRoom.fxml"));
-            Scene scene = new Scene(loader.load());
+            Scene scene = new Scene(loader.load(), 713, 623);
             newRoomStage.setScene(scene);
             newRoomStage.setTitle("Book New Room");
+            newRoomStage.initOwner(Main.theStage);
             newRoomStage.show();
         }
         catch (IOException e) {
@@ -220,6 +223,7 @@ public class BookingsPaneController {
                 booking.setDiscount(discount);
                 Double discountAmount= (roomPrice*discount)/100;
                 booking.setFinalPrice(roomPrice - discountAmount);
+                System.out.println(instance);
                 if(instance!=null){
                     instance.customerBookingsTable.refresh();
                 }

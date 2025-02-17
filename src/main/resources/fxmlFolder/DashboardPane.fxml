@@ -5,7 +5,9 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,191 +16,282 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="761.0" prefWidth="1033.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.DashboardController">
-   <children>
-      <VBox prefHeight="154.0" prefWidth="895.0" stylesheets="@../style.css">
+<ScrollPane fitToWidth="true" style="-fx-background-color: white; -fx-border-radius: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.DashboardController">
+   <content>
+      <VBox prefHeight="955.0" prefWidth="1033.0" style="-fx-background-color: white;" stylesheets="@../style.css">
          <children>
-            <Label styleClass="dropshadow" text="SOCIAL MEDIA" textFill="#1c6cff">
-               <font>
-                  <Font name="Avenir Medium" size="20.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="73.0" prefWidth="869.0">
+            <VBox prefHeight="154.0" prefWidth="895.0" stylesheets="@../style.css">
                <children>
-                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0">
+                  <Label styleClass="dropshadow" text="SOCIAL MEDIA" textFill="#1c6cff">
+                     <font>
+                        <Font name="Avenir Medium" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="73.0" prefWidth="869.0">
                      <children>
-                        <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../mainPageImages/icons8/icons8-facebook-512.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="1000+ followers" textFill="#1c6cff">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="270.0">
+                           <children>
+                              <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../mainPageImages/icons8/icons8-facebook-512.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="1000+ followers" textFill="#1c6cff">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="2.0" style="-fx-background-color: white;" HBox.hgrow="NEVER" />
+                        <VBox alignment="CENTER" layoutX="286.0" layoutY="10.0" prefHeight="100.0" prefWidth="270.0">
+                           <children>
+                              <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../mainPageImages/icons8/icons8-twitter-circled-512.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="1200+ followers" textFill="#1c6cff">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="2.0" style="-fx-background-color: white;" />
+                        <VBox alignment="CENTER" layoutX="446.0" layoutY="10.0" prefHeight="100.0" prefWidth="270.0">
+                           <children>
+                              <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../mainPageImages/icons8/icons8-tiktok-512.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="700+ followers" textFill="#1c6cff">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="2.0" style="-fx-background-color: white;" HBox.hgrow="NEVER" />
-                  <VBox alignment="CENTER" layoutX="286.0" layoutY="10.0" prefHeight="100.0" prefWidth="270.0">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="lightBlueContainer" />
+                  <String fx:value="dropshadow" />
+               </styleClass>
+            </VBox>
+            <Label styleClass="dropshadow" text="Number of Bookings" textFill="#1c6cff">
+               <font>
+                  <Font name="Avenir Next Medium" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="309.0" prefWidth="893.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <children>
+                  <LineChart fx:id="lineChart" legendVisible="false" maxWidth="-Infinity" prefHeight="341.0" prefWidth="655.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <children>
+                  <HBox maxWidth="-Infinity" prefHeight="135.0" prefWidth="738.0">
                      <children>
-                        <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../mainPageImages/icons8/icons8-twitter-circled-512.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="1200+ followers" textFill="#1c6cff">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
+                        <VBox layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="119.0" prefWidth="202.0" stylesheets="@../style.css">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="19.0" prefWidth="187.0" styleClass="dropshadow" text="UPCOMING MEETINGS" textFill="#4481e4" wrapText="true">
+                                 <font>
+                                    <Font name="Avenir Medium" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="108.0" prefWidth="174.0" styleClass="dropshadow" text="4" textFill="#1c6cff">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="lightBlueContainer" />
+                              <String fx:value="dropshadow" />
+                           </styleClass>
+                        </VBox>
+                        <Region prefHeight="200.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
+                        <VBox maxWidth="-Infinity" prefHeight="119.0" prefWidth="202.0" stylesheets="@../style.css">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="19.0" prefWidth="187.0" styleClass="dropshadow" text="PROJECTS" textFill="#4481e4" wrapText="true">
+                                 <font>
+                                    <Font name="Avenir Medium" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="129.0" prefWidth="174.0" styleClass="dropshadow" text="3" textFill="#1c6cff">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="lightBlueContainer" />
+                              <String fx:value="dropshadow" />
+                           </styleClass>
+                        </VBox>
+                        <Region layoutX="212.0" layoutY="10.0" prefHeight="200.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
+                        <VBox layoutX="212.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="119.0" prefWidth="202.0" stylesheets="@../style.css">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="19.0" prefWidth="187.0" styleClass="dropshadow" text="CLIENTS" textFill="#4481e4" wrapText="true">
+                                 <font>
+                                    <Font name="Avenir Medium" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="99.0" prefWidth="174.0" styleClass="dropshadow" text="7" textFill="#1c6cff">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="lightBlueContainer" />
+                              <String fx:value="dropshadow" />
+                           </styleClass>
+                        </VBox>
                      </children>
-                  </VBox>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="70.0" prefWidth="2.0" style="-fx-background-color: white;" />
-                  <VBox alignment="CENTER" layoutX="446.0" layoutY="10.0" prefHeight="100.0" prefWidth="270.0">
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="180.0" prefWidth="1010.0" style="-fx-background-color: #1D1D1D;">
+               <children>
+                  <VBox>
                      <children>
-                        <ImageView fitHeight="67.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../mainPageImages/icons8/icons8-tiktok-512.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="700+ followers" textFill="#1c6cff">
+                        <Label text="Icons Used " textFill="WHITE">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
                            <VBox.margin>
-                              <Insets />
+                              <Insets bottom="4.0" />
                            </VBox.margin>
                         </Label>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Hyperlink fx:id="icons8HL" focusTraversable="false" styleClass="HyperLink" text="Icons 8" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="Images Used (from Unsplash)" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="4.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="LabelForHyperLink" text="Swimming Image:" />
+                              <Hyperlink fx:id="swimmingHL" styleClass="HyperLink" text="Kelvin Zyteng" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="LabelForHyperLink" text="Yoga Image:" />
+                              <Hyperlink fx:id="yogaHL" styleClass="HyperLink" text="Jose Vazquez" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="LabelForHyperLink" text="Gym Image:" />
+                              <Hyperlink fx:id="gymHL" styleClass="HyperLink" text="Victor Freitas" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="LabelForHyperLink" text="Cycling Image:" />
+                              <Hyperlink fx:id="cyclingHL" styleClass="HyperLink" text="Coen van de Broek" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="9.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="Images Used (from Pexel)" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="4.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label styleClass="LabelForHyperLink" text="Table Tennis Image" />
+                              <Hyperlink fx:id="tableTennisHL" styleClass="HyperLink" text="Josh Sorenson" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
                <VBox.margin>
-                  <Insets top="8.0" />
+                  <Insets top="40.0" />
                </VBox.margin>
             </HBox>
          </children>
-         <VBox.margin>
+         <opaqueInsets>
             <Insets />
-         </VBox.margin>
+         </opaqueInsets>
          <padding>
-            <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />
+            <Insets left="3.0" right="20.0" top="20.0" />
          </padding>
-         <styleClass>
-            <String fx:value="lightBlueContainer" />
-            <String fx:value="dropshadow" />
-         </styleClass>
       </VBox>
-      <Label styleClass="dropshadow" text="Number of Bookings" textFill="#1c6cff">
-         <font>
-            <Font name="Avenir Next Medium" size="20.0" />
-         </font>
-         <VBox.margin>
-            <Insets top="30.0" />
-         </VBox.margin>
-      </Label>
-      <HBox alignment="CENTER" prefHeight="309.0" prefWidth="893.0">
-         <VBox.margin>
-            <Insets top="15.0" />
-         </VBox.margin>
-         <children>
-            <LineChart fx:id="lineChart" legendVisible="false" maxWidth="-Infinity" prefHeight="341.0" prefWidth="655.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER">
-         <VBox.margin>
-            <Insets top="30.0" />
-         </VBox.margin>
-         <children>
-            <HBox maxWidth="-Infinity" prefHeight="135.0" prefWidth="738.0">
-               <children>
-                  <VBox layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="119.0" prefWidth="202.0" stylesheets="@../style.css">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="187.0" styleClass="dropshadow" text="UPCOMING MEETINGS" textFill="#4481e4" wrapText="true">
-                           <font>
-                              <Font name="Avenir Medium" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="108.0" prefWidth="174.0" styleClass="dropshadow" text="4" textFill="#1c6cff">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <styleClass>
-                        <String fx:value="lightBlueContainer" />
-                        <String fx:value="dropshadow" />
-                     </styleClass>
-                  </VBox>
-                  <Region prefHeight="200.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
-                  <VBox maxWidth="-Infinity" prefHeight="119.0" prefWidth="202.0" stylesheets="@../style.css">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="187.0" styleClass="dropshadow" text="PROJECTS" textFill="#4481e4" wrapText="true">
-                           <font>
-                              <Font name="Avenir Medium" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="129.0" prefWidth="174.0" styleClass="dropshadow" text="3" textFill="#1c6cff">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <styleClass>
-                        <String fx:value="lightBlueContainer" />
-                        <String fx:value="dropshadow" />
-                     </styleClass>
-                  </VBox>
-                  <Region layoutX="212.0" layoutY="10.0" prefHeight="200.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
-                  <VBox layoutX="212.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="119.0" prefWidth="202.0" stylesheets="@../style.css">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="187.0" styleClass="dropshadow" text="CLIENTS" textFill="#4481e4" wrapText="true">
-                           <font>
-                              <Font name="Avenir Medium" size="15.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="99.0" prefWidth="174.0" styleClass="dropshadow" text="7" textFill="#1c6cff">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <styleClass>
-                        <String fx:value="lightBlueContainer" />
-                        <String fx:value="dropshadow" />
-                     </styleClass>
-                  </VBox>
-               </children>
-            </HBox>
-         </children>
-      </HBox>
-   </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <padding>
-      <Insets bottom="20.0" left="3.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+   </content>
+</ScrollPane>

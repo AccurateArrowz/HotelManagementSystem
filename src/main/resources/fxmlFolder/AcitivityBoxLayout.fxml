@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="354.0" prefWidth="398.0" styleClass="activityVBox" stylesheets="@../stylesheets/activities.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.ActivitiesController">
+   <children>
+      <ImageView fx:id="newActivity_ImageVIew" fitHeight="249.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="activityTitle" styleClass="activityTitle" text="Activity Title" />
+      <HBox minHeight="-Infinity" prefHeight="1.0" prefWidth="200.0" style="-fx-background-color: white;" />
+      <VBox styleClass="activityDescriptionVBox">
+         <children>
+            <Label fx:id="activityDescription" styleClass="activityDescription" text="Activity Description" />
+            <HBox spacing="2.0">
+               <children>
+                  <Label styleClass="activityDescription" text="Timing: " />
+                  <Label fx:id="timingValue" text="value" />
+               </children>
+            </HBox>
+            <HBox spacing="2.0">
+               <children>
+                  <Label styleClass="activityDescription" text="Price:" />
+                  <Label fx:id="pricingValue" text="value" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

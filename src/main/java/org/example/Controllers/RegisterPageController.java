@@ -9,6 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import static org.example.Main.getMyHikariConnection;
+import static org.example.Main.theStage;
 
 public class RegisterPageController implements Initializable {
 
@@ -80,7 +82,7 @@ public class RegisterPageController implements Initializable {
 
 
         String query = "INSERT INTO users (firstName, lastName, email, dateOfBirth, type, country, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
+        String hashedPassword = BCrypt.hashpw(passwordField.getText(), BCrypt.gensalt());
         try (Connection conn = getMyHikariConnection();
              PreparedStatement stmt = conn.prepareStatement(query)){
 
@@ -90,7 +92,7 @@ public class RegisterPageController implements Initializable {
             stmt.setDate(4, java.sql.Date.valueOf(datePicker.getValue()));
             stmt.setString(5, accountType.getValue());
             stmt.setString(6, countryField.getText());
-            stmt.setString(7, passwordField.getText());
+            stmt.setString(7, hashedPassword);
 
             stmt.executeUpdate();
             System.out.println("Registration successful!");
@@ -101,6 +103,7 @@ public class RegisterPageController implements Initializable {
             throw new RuntimeException(e);
         }
         showAlert(Alert.AlertType.INFORMATION, "Success", "Registration Validated", "Your account has been created successfully!");
+
         returnToLoginPage(event);
     }
 
@@ -110,6 +113,7 @@ public class RegisterPageController implements Initializable {
         alert.setTitle(title);
         alert.setHeaderText(header);
         alert.setContentText(content);
+        alert.initOwner(theStage);
         alert.showAndWait();
     }
 }

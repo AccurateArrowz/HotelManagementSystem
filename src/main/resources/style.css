@@ -37,6 +37,12 @@
     -fx-background-color: rgba(0,136,255,0.14);
     -fx-background-radius:10;
 }
+.HyperLink{
+    -fx-text-fill: #338fff;
+}
+.LabelForHyperLink{
+    -fx-text-fill:white;
+}
 
 .dropshadow{
      -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 3.0);

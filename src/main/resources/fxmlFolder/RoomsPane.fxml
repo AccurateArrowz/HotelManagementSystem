@@ -21,13 +21,15 @@
 
 <!--        fx:controller="org.example.MainPageController"-->
 
-<HBox prefHeight="761.0" prefWidth="1033.0" styleClass="root" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.RoomsPaneController">
+
+<HBox prefHeight="765.0" prefWidth="1033.0" styleClass="root" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Controllers.RoomsPaneController">
    <children>
       <VBox maxWidth="-Infinity" minWidth="186.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="731.0" prefWidth="232.0">
          <children>
-            <VBox prefHeight="346.0" prefWidth="204.0">
+            <VBox prefHeight="102.0" prefWidth="209.0" />
+            <VBox prefHeight="248.0" prefWidth="209.0">
                <children>
-                  <GridPane prefHeight="246.0" prefWidth="174.0" vgap="20.0">
+                  <GridPane prefHeight="230.0" prefWidth="209.0" vgap="15.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.70842742919922" minWidth="10.0" prefWidth="85.24246215820312" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="582.4621887207031" minWidth="10.0" prefWidth="103.75753784179688" />
@@ -37,7 +39,7 @@
                       <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints prefHeight="47.0" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="47.0" valignment="TOP" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label alignment="CENTER" text="Room No." GridPane.halignment="LEFT" GridPane.valignment="CENTER">
@@ -56,8 +58,8 @@
                            </font>
                         </Label>
                         <TextField fx:id="roomNoField" prefHeight="26.0" prefWidth="100.0" GridPane.columnIndex="1" />
-                        <ChoiceBox fx:id="roomType" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ChoiceBox fx:id="roomAvailability" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="roomType" prefHeight="20.0" prefWidth="110.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="roomAvailability" prefHeight="20.0" prefWidth="110.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="roomPriceField" prefHeight="26.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets />
@@ -107,13 +109,18 @@
                         </VBox>
                      </children>
                   </GridPane>
-                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="49.0" prefWidth="204.0" textAlignment="CENTER" textFill="#c31515" wrapText="true" />
+                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="25.0" prefWidth="204.0" textAlignment="CENTER" textFill="#c31515" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
                <VBox.margin>
-                  <Insets top="110.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
-            <GridPane hgap="20.0" prefHeight="90.0" prefWidth="706.0" vgap="20.0">
+            <VBox prefHeight="46.0" prefWidth="209.0" />
+            <GridPane hgap="20.0" minWidth="90.0" prefHeight="90.0" prefWidth="209.0" vgap="20.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -123,22 +130,26 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addNewRoom" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Add" textFill="WHITE">
+                  <Button fx:id="addButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#addNewRoom" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Add" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateRoom" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Update" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     </font>
+                  </Button>
+                  <Button fx:id="updateButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#updateRoom" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Update" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteRoom" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Delete" textFill="WHITE" GridPane.rowIndex="1">
+                     </font>
+                  </Button>
+                  <Button fx:id="deleteButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#deleteRoom" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Delete" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearFields" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Clear" textFill="WHITE" GridPane.columnIndex="1">
+                     </font>
+                  </Button>
+                  <Button fx:id="clearButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#clearFields" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #1E3880;" styleClass="myButton" text="Clear" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                </children>
             </GridPane>
          </children>
@@ -154,9 +165,9 @@
       </VBox>
       <VBox prefWidth="787.0">
          <children>
-            <Label text="Rooms">
+            <Label prefHeight="7.0" prefWidth="62.0" text="Rooms">
                <font>
-                  <Font name="AppleMyungjo Regular" size="22.0" />
+                  <Font name="Apple Chancery" size="22.0" />
                </font>
             </Label>
             <HBox prefHeight="22.0" prefWidth="689.0">
@@ -165,7 +176,8 @@
                   <CheckBox mnemonicParsing="false" text="Available">
                      <HBox.margin>
                         <Insets left="11.0" />
-                     </HBox.margin></CheckBox>
+                     </HBox.margin>
+                  </CheckBox>
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" top="6.0" />

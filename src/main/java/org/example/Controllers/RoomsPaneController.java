@@ -67,6 +67,7 @@ public class RoomsPaneController implements Initializable {
 
     }
     private void tableViewInitializer() {
+//        System.out.println("  tableViewInitializer method called");
         roomNoColumn.setCellValueFactory(new PropertyValueFactory<Rooms,String>("roomNo"));
         //the argument in constructor of PropertyValueFactory is for setting text top of column
         roomTypeColumn.setCellValueFactory(new PropertyValueFactory<Rooms,String>("roomType"));
@@ -89,6 +90,7 @@ public class RoomsPaneController implements Initializable {
                         );
                 roomsList.add(retrievedRoom);
             }
+            System.out.println("rooms List from tableViewInitializer method: "+ roomsList);
             roomsTable.setItems(roomsList);
             dbConnection.close();
         }
@@ -245,7 +247,7 @@ public class RoomsPaneController implements Initializable {
         // Update the database
         String updateQuery = "UPDATE Rooms SET Type = ?, Availability = ?, Price = ?, Cleaning_Status = ? WHERE Room_No = ?";
 
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_db", "root", "your_password");
+        try (Connection conn = Main.getMyHikariConnection();
              PreparedStatement pstmt = conn.prepareStatement(updateQuery)) {
 
             pstmt.setString(1, newType);
@@ -272,6 +274,8 @@ public class RoomsPaneController implements Initializable {
         alert.setTitle("Confirm Deletion");
         alert.setHeaderText(null); // No header
         alert.setContentText("Are you sure you want to delete this room?");
+        alert.initOwner(Main.theStage);
+        alert.showAndWait();
 
         Optional<ButtonType> result = alert.showAndWait();
 
@@ -317,6 +321,9 @@ public class RoomsPaneController implements Initializable {
         }
     }
     public static List<Rooms> roomsListGetter(){
+        System.out.println("in roomsListGetter");
+        System.out.println("the original list"+ roomsList);
+        System.out.println(" the rooms: " + new ArrayList<>(roomsList));
         return new ArrayList<>(roomsList);//send a copy
     }
 }

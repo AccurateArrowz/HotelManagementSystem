@@ -20,6 +20,7 @@
             <artifactId>HikariCP</artifactId>
             <version>4.0.3</version>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -47,6 +48,11 @@
             <artifactId>javafx-graphics</artifactId>
             <version>23.0.2 </version>
 <!--            <classifier>mac</classifier>-->
+        </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
         </dependency>
     </dependencies>
 

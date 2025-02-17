@@ -4,7 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Hyperlink;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +17,10 @@ public class DashboardController implements Initializable {
 
     @FXML
     private LineChart<String, Integer> lineChart;
+    @FXML
+    private Hyperlink icons8;
+    @FXML
+    private Hyperlink icons7;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,6 +40,10 @@ public class DashboardController implements Initializable {
         lineChart.lookup( ".chart-plot-background").setStyle("-fx-background-color: transparent;");
         series.getNode().setStyle("-fx-stroke: #d6e8ff");
     }
+    public void openLinks(URI uri) throws IOException {
+        Desktop.getDesktop().browse(uri);
+    }
+
 
 
 }

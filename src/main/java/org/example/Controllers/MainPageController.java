@@ -42,7 +42,7 @@ public class MainPageController implements Initializable {
    HBox rightPane; //parent pane on the right side
    Pane roomsPane;
    Pane bookingsPane;
-   Pane dashboardPane;
+   ScrollPane dashboardPane;
    ScrollPane activitiesPane;
 
 
@@ -152,11 +152,11 @@ public class MainPageController implements Initializable {
    }
 
    public void logOut(){
-      Stage mainStage = (Stage) logoutButton.getScene().getWindow();
+      Stage primaryStage = (Stage) logoutButton.getScene().getWindow();
       try {
          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxmlFolder/LoginPage.fxml"));
          Scene loginScene = new Scene(fxmlLoader.load());
-         mainStage.setScene(loginScene);
+         primaryStage.setScene(loginScene);
       }
       catch (IOException e) {
          System.out.println(e.getMessage());

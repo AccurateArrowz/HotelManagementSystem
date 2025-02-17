@@ -60,7 +60,7 @@
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="128.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
+                  <VBox minWidth="10.0" prefHeight="128.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
                   <Button fx:id="dashboardButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#showDashboard" prefHeight="62.0" prefWidth="227.0" styleClass="sideBar_button" text=" Dashboard" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
@@ -112,7 +112,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <VBox prefHeight="88.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
+                  <VBox minWidth="15.0" prefHeight="88.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
                   <HBox prefHeight="63.0" prefWidth="225.0">
                      <VBox.margin>
                         <Insets />
